@@ -1,0 +1,225 @@
+# Task Manager API — TechNova Solutions
+
+Projeto acadêmico desenvolvido para simular a adoção de Git em uma empresa em crescimento, a **TechNova Solutions**.
+
+A empresa anteriormente compartilhava código por arquivos `.zip`, sem controle claro de versões, histórico de alterações ou organização entre desenvolvedores. Este projeto demonstra uma forma profissional de estruturar um repositório, trabalhar com branches, commits padronizados, Pull Requests simulados, releases e versionamento semântico.
+
+## Descrição do projeto
+
+O **Task Manager API** é uma API simples para gerenciamento de tarefas. Ela permite criar, listar, atualizar e deletar tarefas.
+
+O foco principal do projeto não é a complexidade da API, mas sim a aplicação correta de boas práticas com Git, organização de repositório e fluxo profissional de desenvolvimento.
+
+## Funcionalidades
+
+- Criar tarefa
+- Listar tarefas
+- Buscar tarefa por ID
+- Atualizar tarefa
+- Deletar tarefa
+- Validação básica dos dados
+- Endpoint de status da API
+
+## Tecnologias utilizadas
+
+- Node.js
+- Express.js
+- JavaScript
+- Git
+- GitHub/GitLab para hospedagem do repositório
+
+## Como rodar o projeto
+
+### 1. Clonar o repositório
+
+```bash
+git clone <URL_DO_REPOSITORIO>
+cd task-manager-api-git-atividade
+```
+
+### 2. Instalar dependências
+
+```bash
+npm install
+```
+
+### 3. Rodar em modo desenvolvimento
+
+```bash
+npm run dev
+```
+
+### 4. Rodar em modo produção
+
+```bash
+npm start
+```
+
+A API ficará disponível em:
+
+```text
+http://localhost:3000
+```
+
+## Endpoints da API
+
+### Status da API
+
+```http
+GET /health
+```
+
+### Criar tarefa
+
+```http
+POST /tasks
+Content-Type: application/json
+```
+
+Body:
+
+```json
+{
+  "title": "Estudar Git",
+  "description": "Praticar branches, commits e tags"
+}
+```
+
+### Listar tarefas
+
+```http
+GET /tasks
+```
+
+### Buscar tarefa por ID
+
+```http
+GET /tasks/1
+```
+
+### Atualizar tarefa
+
+```http
+PUT /tasks/1
+Content-Type: application/json
+```
+
+### Deletar tarefa
+
+```http
+DELETE /tasks/1
+```
+
+## Estrutura do projeto
+
+```text
+task-manager-api-git-atividade/
+├── docs/
+│   ├── pull-requests/
+│   └── git-flow.md
+├── src/
+│   ├── controllers/
+│   ├── routes/
+│   ├── services/
+│   └── server.js
+├── .gitignore
+├── CHANGELOG.md
+├── package.json
+└── README.md
+```
+
+## Estratégia de branches
+
+Este projeto utiliza um fluxo baseado em Git Flow simplificado.
+
+### `main`
+
+Branch de produção. Contém apenas versões estáveis e liberadas da aplicação.
+
+### `develop`
+
+Branch de integração. Recebe as funcionalidades aprovadas antes de uma release oficial.
+
+### `feature/*`
+
+Branches utilizadas para desenvolver novas funcionalidades de forma isolada.
+
+Exemplos:
+
+```text
+feature/criar-tarefas
+feature/listar-tarefas
+feature/atualizar-tarefas
+feature/deletar-tarefas
+```
+
+### `hotfix/*`
+
+Branches utilizadas para corrigir problemas urgentes encontrados em produção.
+
+Exemplo:
+
+```text
+hotfix/delete-validation
+```
+
+## Fluxo de desenvolvimento
+
+1. Criar uma branch a partir da `develop`.
+2. Desenvolver a funcionalidade.
+3. Fazer commits pequenos e organizados.
+4. Enviar a branch para o repositório remoto.
+5. Abrir um Pull Request para a branch `develop`.
+6. Revisar, testar e aprovar.
+7. Fazer merge na `develop`.
+8. Fazer release da `develop` para a `main`.
+9. Criar uma tag de versão.
+
+## Padrão de commits
+
+O projeto utiliza commits padronizados no estilo Conventional Commits.
+
+```text
+feat: nova funcionalidade
+fix: correção de bug
+docs: alteração em documentação
+refactor: melhoria interna sem alterar comportamento
+chore: ajustes de configuração ou manutenção
+```
+
+## Versionamento
+
+Este projeto utiliza Versionamento Semântico.
+
+```text
+v1.0.0 - primeira versão estável
+v1.1.0 - adição de novas funcionalidades
+v1.1.1 - correção urgente em produção
+```
+
+## Pull Requests simulados
+
+Os Pull Requests foram documentados na pasta:
+
+```text
+docs/pull-requests/
+```
+
+Cada PR contém descrição clara, o que foi feito, como testar, branch de origem e branch de destino.
+
+## Simulação de hotfix
+
+Foi simulado um bug em produção no endpoint de exclusão de tarefas.
+
+Fluxo utilizado:
+
+1. Bug identificado na branch `main`.
+2. Criada a branch `hotfix/delete-validation`.
+3. Correção aplicada.
+4. Merge realizado diretamente na `main`.
+5. Criada a tag `v1.1.1`.
+6. Correção também integrada na `develop`.
+
+## Conclusão
+
+Este projeto demonstra como uma empresa em crescimento pode sair de um processo desorganizado baseado em arquivos `.zip` e adotar um fluxo profissional com Git, branches, commits padronizados, Pull Requests, releases e versionamento semântico.
